@@ -34,8 +34,8 @@ h2 {
 }
 
 .form-control {
-    margin-bottom: 10px;
-    padding-bottom: 20px;
+    margin-bottom: 15px; 
+    padding-bottom: 10px;
     position: relative;
 }
 
@@ -70,8 +70,8 @@ h2 {
 .form-control small {
     color: var(--error-color);
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -10.5px;
+    left: 0px;
     visibility: hidden;
 }
 
