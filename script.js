@@ -24,35 +24,26 @@ const isValidEmail = (email) => {
     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return reg.test(email);
 }
-  
+
+//Check required fields
+const checkRequired = (inputArr) => {
+    inputArr.forEach(function(input) {
+        if(input.value.trim() === ''){
+            showError(input, `${getFieldName(input)} is required`);
+        } else {
+            showSuccess(input);
+        }
+    });
+}
+
+const getFieldName = (input) => {
+    return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
 
 
 // Event Listeners: 
 form.addEventListener('submit', function(e){
     e.preventDefault(); //prevents the form from submitting
-    if(username.value === ''){
-        showError(username, 'Username is required');
-    } else {
-        showSuccess(username);
-    }
 
-    if(email.value === ''){
-        showError(email, 'Email is required');
-    } else if (!isValidEmail(email.value)){
-        showError(email, 'Email enterered does not seem correct, please try again');
-    } else {
-        showSuccess(email);
-    }
-
-    if(password.value === ''){
-        showError(password, 'Password is required');
-    } else {
-        showSuccess(password);
-    }
-
-    if(password2.value === ''){
-        showError(password2, 'Password is required');
-    } else {
-        showSuccess(password2);
-    }
+    checkRequired([username, email, password, password2]);
 })
