@@ -19,6 +19,14 @@ const showSuccess = (input) => {
     formControl.className = 'form-control success';
 }
 
+//Verify email: 
+const isValidEmail = (email) => {
+    const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return reg.test(email);
+}
+  
+
+
 // Event Listeners: 
 form.addEventListener('submit', function(e){
     e.preventDefault(); //prevents the form from submitting
@@ -30,6 +38,8 @@ form.addEventListener('submit', function(e){
 
     if(email.value === ''){
         showError(email, 'Email is required');
+    } else if (!isValidEmail(email.value)){
+        showError(email, 'Email enterered does not seem correct, please try again');
     } else {
         showSuccess(email);
     }
