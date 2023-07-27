@@ -5,6 +5,46 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 
+// Tooltip Code -->
+
+document.addEventListener("DOMContentLoaded", function () {
+    const usernameField = document.getElementById("username");
+    const passwordField = document.getElementById("password");
+  
+    const usernameTooltip = document.getElementById("username-tooltip");
+    const passwordTooltip = document.getElementById("password-tooltip");
+  
+    usernameField.addEventListener("focus", function () {
+      showTooltip(usernameTooltip, usernameField);
+    });
+  
+    passwordField.addEventListener("focus", function () {
+      showTooltip(passwordTooltip, passwordField);
+    });
+  
+    function showTooltip(tooltipElement, inputField) {
+      // Calculate the position of the tooltip next to the input field
+      const inputRect = inputField.getBoundingClientRect();
+      const leftOffset = inputRect.left + inputField.offsetWidth + 10;
+      const topOffset = inputRect.top;
+  
+      // Position and show the tooltip
+      tooltipElement.style.left = leftOffset + "px";
+      tooltipElement.style.top = topOffset + "px";
+      tooltipElement.style.display = "block";
+    }
+  
+    // Hide tooltips when clicking outside the input fields
+    document.addEventListener("click", function (event) {
+      const target = event.target;
+      if (target !== usernameField && target !== passwordField) {
+        usernameTooltip.style.display = "none";
+        passwordTooltip.style.display = "none";
+      }
+    });
+  });
+  
+
 //Show input errors: 
 const showError = (input, message) => {
     const formControl = input.parentElement;
