@@ -97,10 +97,12 @@ h2 {
 
 .tooltip {
     position: absolute;
-    background-color: #333;
+    background-color: #3498db;
     color: #fff;
     padding: 5px;
     border-radius: 5px;
+    width: 320px;
+    opacity: 90%;
     display: none;
   }
   
