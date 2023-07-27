@@ -10,9 +10,11 @@ const password2 = document.getElementById('password2');
 document.addEventListener("DOMContentLoaded", function () {
     const usernameField = document.getElementById("username");
     const passwordField = document.getElementById("password");
+    const emailField = document.getElementById("email");
   
     const usernameTooltip = document.getElementById("username-tooltip");
     const passwordTooltip = document.getElementById("password-tooltip");
+    const emailTooltip = document.getElementById("email-tooltip");
   
     usernameField.addEventListener("focus", function () {
       showTooltip(usernameTooltip, usernameField);
@@ -21,6 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
     passwordField.addEventListener("focus", function () {
       showTooltip(passwordTooltip, passwordField);
     });
+
+    emailField.addEventListener("focus", function () {
+        showTooltip(emailTooltip, emailField);
+      });
   
     function showTooltip(tooltipElement, inputField) {
       // Calculate the position of the tooltip next to the input field
@@ -37,9 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Hide tooltips when clicking outside the input fields
     document.addEventListener("click", function (event) {
       const target = event.target;
-      if (target !== usernameField && target !== passwordField) {
+      if (target !== usernameField && target !== passwordField && target !== emailField) {
         usernameTooltip.style.display = "none";
         passwordTooltip.style.display = "none";
+        emailTooltip.style.display = "none";
       }
     });
   });
