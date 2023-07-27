@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function showTooltip(tooltipElement, inputField) {
       // Calculate the position of the tooltip next to the input field
       const inputRect = inputField.getBoundingClientRect();
-      const leftOffset = inputRect.left + inputField.offsetWidth + 10;
-      const topOffset = inputRect.top;
+      const leftOffset = inputRect.left + inputField.offsetWidth + -320;
+      const topOffset = inputRect.top + inputField.offsetWidth + -350; ;
   
       // Position and show the tooltip
       tooltipElement.style.left = leftOffset + "px";
